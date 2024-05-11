@@ -1,0 +1,25 @@
+<div class="ingreso">
+  <h2 class="ingreso_titulo">ingreso</h2>
+  <div class="elemento limpiarEstilos" *ngFor="let ingreso of ingresos">
+    <div class="elemento_descripcion">{{ ingreso.descripcion }}</div>
+    <div class="right">
+      <div class="elemento_valor">{{ ingreso.valor | currency: 'MXN': '$' : '1.2-2'}}</div>
+      <div class="elemento_eliminar">
+        <button
+          class="elemento_eliminar--btn" (click)="eliminarIngreso(ingreso)">
+          <i class="ion-trash-a"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="elemento limpiarEstilos">
+      <div class="elemento_descripcion">Venta coche</div>
+      <div class="right">
+        <div class="elemento_valor">$800.00</div>
+        <div class="elemento_eliminar">
+          <button class="elemento_eliminar--btn"><i class="ion-trash-a"></i></button>
+        </div>
+      </div>
+    </div> -->

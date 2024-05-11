@@ -1,0 +1,50 @@
+<form (ngSubmit)="forma.form.valid && agregarRegistro()" #forma="ngForm">
+  <div class="agregar">
+    <div class="agregar_contenedor">
+      <select
+        class="agregar_tipo"
+        (change)="tipoMovimiento($event)"
+        [ngClass]="{ redfocus: movimiento === 'egreso' }"
+      >
+        <option value="ingreso" selected>Ingreso</option>
+        <option value="egreso">Egreso</option>
+      </select>
+      <input
+        type="text"
+        class="agregar_descripcion"
+        placeholder="Agregar Descripcion"
+        name="descripcion"
+        required
+        [(ngModel)]="descripcion"
+        [ngClass]="{ redfocus: movimiento === 'egreso' }"
+      />
+      <input
+        type="number"
+        class="agregar_valor"
+        placeholder="$100.00"
+        name="valor"
+        min="0"
+        max="100000"
+        required
+        [(ngModel)]="valor"
+        [ngClass]="{ redfocus: movimiento === 'egreso' }"
+      />
+      <button type="submit" class="agregar_btn">
+        <i
+          class="ion-ios-checkmark-outline"
+          [ngClass]="{ red: movimiento === 'egreso' }"
+        ></i>
+      </button>
+    </div>
+  </div>
+</form>
+
+<!--
+NOTA
+
+Cuando uses two way binding adentro de tags 'form'
+AGREGA el atributo 'name', si no, no funciona el binding
+porque? nose, pero con el simple hecho de poner name=' '
+el valor que le asignes a name tiene que ser cualquier caracter (hasta un espacio)
+no tiene que ser obligatorio un nombre
+-->
